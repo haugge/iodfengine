@@ -404,7 +404,7 @@ else # ifeq Linux
 ifeq ($(PLATFORM),darwin)
   HAVE_VM_COMPILED=true
   LIBS = -framework Cocoa
-  CLIENT_LIBS=
+  CLIENT_LIBS= -lcurl
   RENDERER_LIBS=
   OPTIMIZEVM=
 
@@ -1541,6 +1541,7 @@ Q3OBJ = \
   $(B)/client/cl_scrn.o \
   $(B)/client/cl_ui.o \
   $(B)/client/cl_avi.o \
+  $(B)/client/cl_download.o \
   \
   $(B)/client/cm_load.o \
   $(B)/client/cm_patch.o \
