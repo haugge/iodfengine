@@ -1,11 +1,23 @@
                    ,---------------------------------------.
-                   |   _                     _       ____  |
-                   |  (_)___  __ _ _  _ __ _| |_____|__ /  |
-                   |  | / _ \/ _` | || / _` | / / -_)|_ \  |
-                   |  |_\___/\__, |\_,_\__,_|_\_\___|___/  |
-                   |            |_|                        |
+                   |          _         _ ___              |
+                   |         (_)___  __| | __|___          |
+                   |         | / _ \/ _` | _|/ -_)         |
+                   |         |_\___/\__,_|_| \___|         |
                    |                                       |
-                   `---------- http://ioquake3.org --------'
+                   |                                       |
+                   `---------- http://www.q3df.org --------'
+
+
+The original iodfe at https://github.com/runaos/iodfe is way out of sync with
+ioq3 and unmaintained. This fork will try to stay up to date with ioq3 and
+hopefully port all features from runaos's iodfe repo as time permits.
+
+To build on mac use `./make-macosx.sh x86_64` or `./make-macosx.sh x86`
+depending on your architecture.
+
+
+--------------------------------------------------------------------------------
+
 
 The intent of this project is to provide a baseline Quake 3 which may be used
 for further development and baseq3 fun.
