@@ -15,6 +15,10 @@ hopefully port all features from runaos's iodfe repo as time permits.
 To build on mac use `./make-macosx.sh x86_64` or `./make-macosx.sh x86`
 depending on your architecture.
 
+Implemented features:
+
+  * autodownload maps from ws.q3df.org `/dl_source` to set 
+
 
 --------------------------------------------------------------------------------
 
