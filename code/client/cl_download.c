@@ -339,7 +339,7 @@ void DL_Init( void ) {
 		Com_Printf("Failed to initialize libcurl.\n");
 	}
 	dl_verbose = Cvar_Get("dl_verbose", "0", 0);
-	dl_source = Cvar_Get("dl_source", "http://ws.q3df.org/getpk3bymapname.php/%m", CVAR_ARCHIVE);
+	dl_source = Cvar_Get("dl_source", "https://ws.q3df.org/getpk3bymapname.php/%m", CVAR_ARCHIVE);
 	dl_showprogress = Cvar_Get("dl_showprogress", "1", CVAR_ARCHIVE);
 	dl_showmotd = Cvar_Get("dl_showmotd", "1", CVAR_ARCHIVE);
 	dl_usebaseq3 = Cvar_Get("dl_usebaseq3", "0", CVAR_ARCHIVE);
@@ -395,7 +395,7 @@ int DL_Begin( const char *map, qboolean nonblocking )
 		Com_Printf("Map already exists locally.\n");
 		return 0;
 	}
-	if (strncasecmp(dl_source->string, "http://", 7)) {
+	if (strncasecmp(dl_source->string, "http://", 7) && strncasecmp(dl_source->string, "https://", 8)) {
 		if (strstr(dl_source->string, "://")) {
 			Com_Printf("Invalid dl_source.\n");
 			return -1;
