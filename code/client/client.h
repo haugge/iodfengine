@@ -43,6 +43,15 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define QKEY_SIZE 2048
 
 #define	RETRANSMIT_TIMEOUT	3000	// time between connection packet retransmits
+#define SNAPHUD_MAXZONES		128
+
+typedef struct {
+	int			speed;
+	float		zones[SNAPHUD_MAXZONES];
+	int			count;
+	vec2_t		m;
+	qboolean	promode;
+} snappingHud_t;
 
 // snapshots are a view of the server at a given time
 typedef struct {
@@ -132,6 +141,8 @@ typedef struct {
 	// tracked view angles to account for standing on rotating objects,
 	// and teleport direction changes
 	vec3_t		viewangles;
+
+	snappingHud_t	snappinghud;
 
 	int			serverId;			// included in each client message so the server
 												// can tell if it is for a prior map_restart
@@ -570,6 +581,10 @@ int		SCR_GetBigStringWidth( const char *str );	// returns in virtual 640x480 coo
 void	SCR_AdjustFrom640( float *x, float *y, float *w, float *h );
 void	SCR_FillRect( float x, float y, float width, float height,
 					 const float *color );
+void	SCR_FillAngleYaw( float start, float end, float viewangle, float y,
+						  float height, const float *color );
+void	SCR_MarkAnglePitch( float angle, float height, float viewangle,
+							float x, float width, const float *color );
 void	SCR_DrawPic( float x, float y, float width, float height, qhandle_t hShader );
 void	SCR_DrawNamedPic( float x, float y, float width, float height, const char *picname );
 
@@ -577,6 +592,14 @@ void	SCR_DrawBigString( int x, int y, const char *s, float alpha, qboolean noCol
 void	SCR_DrawBigStringColor( int x, int y, const char *s, vec4_t color, qboolean noColorEscape );	// ignores embedded color control characters
 void	SCR_DrawSmallStringExt( int x, int y, const char *string, float *setColor, qboolean forceColor, qboolean noColorEscape );
 void	SCR_DrawSmallChar( int x, int y, int ch );
+
+
+//
+// cl_hud.c
+//
+
+void	HUD_Init (void);
+void	HUD_Draw (void);
 
 
 //

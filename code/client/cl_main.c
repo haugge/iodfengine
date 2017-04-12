@@ -3715,7 +3715,7 @@ void CL_Init( void ) {
 	CL_InitRef();
 
 	SCR_Init ();
-
+	HUD_Init ();
 	DL_Init();	// Cgg - client download
 
 //	Cbuf_Execute ();
